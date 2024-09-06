@@ -1,0 +1,78 @@
+/*General Style*/
+body {
+    background-color: white;
+    margin: 0;
+    padding: 0;
+}
+
+/* Search */
+.search-bar {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    padding: 5px 15px;
+    width: 250px;
+    background-color: #f8f9fa;
+}
+.search-bar input {
+    border: none;
+    outline: none;
+    flex: 1;
+    background-color: transparent;
+    padding-left: 10px;
+}
+.search-bar i {
+    color: green;
+}
+.strong {
+    font-weight: 600;
+}
+.card {
+    padding: 15px;
+    border-radius: 7px;
+    box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.1);
+}
+.vacation-card {
+    margin-bottom: 20px;
+}
+
+/*Pagination*/
+.pagination-container {
+    margin: 0 auto;
+    padding: 0px 0px;
+    border-radius: 50px;
+}
+.pagination .page-link {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #6c757d;
+    text-decoration: none;
+}
+.pagination .page-item {
+    margin: 0 5px;
+}
+.page-link:hover {
+    background-color: #28a745;
+    color: white;
+}
+.page-item.disabled .page-link {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+
+/* Mobile Responsive*/
+@media (max-width: 767.98px) {
+    .search-bar {
+        width: 100%;
+        max-width: none;
+    }
+    .vacation-card {
+        margin-bottom: 15px;
+    }
+}

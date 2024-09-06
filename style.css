@@ -1,0 +1,268 @@
+/*General Style*/
+body {
+    background-color: white;
+    margin: 0;
+    padding: 0;
+}
+
+/*Welcome(heading)*/
+.container h2 {
+    margin-top: 80px;
+}
+
+/*Profile card*/
+.profile-card {
+    background-color: #f6f6f6;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    max-width: 800px;
+}
+.profile-info {
+    display: flex;
+    align-items: center;
+}
+.profile-info img {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    margin-right: 20px;
+}
+.profile-details h5 {
+    margin: 0;
+    font-weight: bold;
+}
+.profile-details p {
+    margin: 0;
+    color: gray;
+}
+.profile-details div {
+    margin-top: 10px;
+}
+.profile-details div p {
+    margin: 5px 0;
+}
+.profile-details i {
+    font-size: 1.2rem;
+    margin-right: 5px;
+}
+.profile-action {
+    text-align: right;
+}
+.strong-dark-gray {
+    font-weight: bold;
+    color: #272727;
+}
+
+/*Summery cards*/
+.summary-card {
+    background-color:rgba(37,128,62);
+    color: #fff;
+    border-radius: 10px;
+    padding: 20px ;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+.summary-card i {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    margin-right: 15px;
+}
+.summary-card h3 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin: 0;
+}
+.summary-card p {
+    padding-bottom: 10px;
+    margin: 0;
+    font-size: 1rem;
+    text-align: left;
+}
+.summary-cards {
+    display: flex;
+    justify-content: space-between;
+}
+.new-request-btn {
+    text-align: right;
+    margin-bottom: 20px;
+}
+.summary-cards-container {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+
+/* Carousel */
+.latest-news-section {
+    margin: 50px 0;
+    text-align: left;
+    margin-bottom: 20px;
+}
+.carousel {
+    width: 100%;
+    position: relative;
+}
+.carousel-item img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.carousel-caption {
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    color: black;
+    text-align: left;
+}
+.carousel-caption h5 {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.carousel-caption p {
+    font-size: 1rem;
+}
+.carousel-indicators {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.carousel-indicators li {
+    background-color: gray;
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    margin: 0 4px;
+    opacity: 0.5;
+    cursor: pointer;
+}
+.carousel-indicators .active {
+    background-color: black;
+    opacity: 1;
+}
+
+/*Vacation Requests*/
+.btn-outline-success {
+    border-color:rgba(37,128,62);
+    color:rgba(37,128,62);
+}
+.btn-outline-success:hover {
+    background-color:rgba(37,128,62);
+    color: white;
+}
+.search-bar {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    padding: 5px 15px;
+    width: 250px;
+    background-color: #f8f9fa;
+}
+.search-bar input {
+    border: none;
+    outline: none;
+    flex: 1;
+    background-color: transparent;
+    padding-left: 10px;
+}
+.search-bar i {
+    color: green;
+}
+.vacation-container {
+    background-color: #f6f6f6;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+}
+.vacation-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+}
+.vacation-header h4 {
+    margin: 0;
+    font-weight: bold;
+    color: #333;
+}
+.vacation-card {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #ffffff;
+    text-align: center;
+    border: 1px solid #eee;
+}
+.vacation-card img {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+}
+.vacation-card h5 {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #333;
+}
+.vacation-card p {
+    margin: 5px 0;
+    color: #666;
+}
+.vacation-card .btn {
+    width: 100px;
+}
+.vacation-footer {
+    text-align: right;
+    margin-top: 10px;
+}
+.vacation-footer a {
+    color:rgba(37,128,62);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+
+/*Mobile Responsive*/
+@media (min-width: 768px) and (max-width: 991px) {
+    .profile-info {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .vacation-card {
+        margin: 10px 0;
+    }
+    .vacation-card img {
+        width: 90px;
+        height: 90px;
+    }
+    .navbar-nav {
+        margin-top: 10px;
+    }
+    .navbar-toggler {
+        margin-right: 0;
+    }
+}

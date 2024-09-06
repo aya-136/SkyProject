@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vacation Requests</title>
+    <link rel="stylesheet" href="vacation.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <!--NavBar-->
+    <div id="navbar-placeholder"></div>
+    <br>
+    <div class="container mt-5">
+        <!--Search-->
+        <form class="d-flex align-items-center justify-content-between" role="search">
+            <div class="d-flex align-items-center">
+                <i class="fas fa-list me-2 fa-2x"></i>
+                <p class="text mb-0">Vacation Requests</p>
+            </div>
+            <div class="search-bar d-flex align-items-center">
+                <i class="fas fa-search me-2"></i>
+                <input type="text" class="form-control" placeholder="Search..." id="searchInput" onkeyup="filterRequests()">
+            </div>
+        </form>
+        <hr>
+        <!--Select-->
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <div>
+                <input type="checkbox" id="select-all">
+                <label for="select-all">Select All</label>
+            </div>
+            <div class="d-flex">
+                <button class="btn btn-outline-secondary btn-sm">
+                    <i class="fas fa-filter fa-2x"></i>
+                </button>
+            </div>
+        </div>
+        <!--Cards Section-->
+        <div class="row" id="vacationContainer">
+            <!-- Card 1 -->
+            <div class="col-md-4 vacation-card">
+                <div class="border-top-0 card">
+                    <div class="card-body">
+                        <div class="d-flex mb-3 align-items-center">
+                            <input class="form-check-input me-2" type="checkbox" value="1">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGcjtJnQbBYE4CV9nV3rNd9UWs-EV2a3EVxg&s" alt="Profile Image" class="rounded-circle me-3" width="50" height="50">
+                            <h5 class="mb-0">Sami Al-ali</h5>
+                        </div>
+                        <p>Submitted on:</p>
+                        <p class="strong">1/3/2024</p>
+                        <p>Duration: </p>
+                        <p class="strong">2 Weeks (1/4/2023 - 14/4/2023)</p>
+                        <p>Salary: </p>
+                        <p class="strong">1000 AED</p>
+                        <div class="d-grid gap-2 d-md-block">
+                            <button class="btn btn-success me-2">Approve</button>
+                            <button type="button" class="btn btn-outline-success">Decline</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="col-md-4 vacation-card">
+                <div class="border-top-0 card">
+                    <div class="card-body">
+                        <div class="d-flex mb-3 align-items-center">
+                            <input class="form-check-input me-2" type="checkbox" value="1">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWpAyuyKd40qgvtzB31luFHUbBH3Ye0fP5sB_kXZ67rfGJe9W1aRw5obRi1cLDfGcNmBo&usqp=CAU" alt="Profile Image" class="rounded-circle me-3" width="50" height="50">
+                            <h5 class="mb-0">Mona Salah</h5>
+                        </div>
+                        <p>Submitted on:</p>
+                        <p class="strong">15/3/2024</p>
+                        <p>Duration: </p>
+                        <p class="strong">1 Week (20/3/2024 - 27/3/2024)</p>
+                        <p>Salary: </p>
+                        <p class="strong">1500 AED</p>
+                        <div class="d-grid gap-2 d-md-block">
+                            <button class="btn btn-success me-2">Approve</button>
+                            <button type="button" class="btn btn-outline-success">Decline</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="col-md-4 vacation-card">
+                <div class="border-top-0 card">
+                    <div class="card-body">
+                        <div class="d-flex mb-3 align-items-center">
+                            <input class="form-check-input me-2" type="checkbox" value="1">
+                            <img src="data:image/jpeg;base64,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" alt="Profile Image" class="rounded-circle me-3" width="50" height="50">
+                            <h5 class="mb-0">Jamal Noor</h5>
+                        </div>
+                        <p>Submitted on:</p>
+                        <p class="strong">5/4/2024</p>
+                        <p>Duration: </p>
+                        <p class="strong">3 Weeks (10/4/2024 - 30/4/2024)</p>
+                        <p>Salary: </p>
+                        <p class="strong">2000 AED</p>
+                        <div class="d-grid gap-2 d-md-block">
+                            <button class="btn btn-success me-2">Approve</button>
+                            <button type="button" class="btn btn-outline-success">Decline</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 4 -->
+            <div class="col-md-4 vacation-card">
+                <div class="border-top-0 card">
+                    <div class="card-body">
+                        <div class="d-flex mb-3 align-items-center">
+                            <input class="form-check-input me-2" type="checkbox" value="1">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOyN0v2qY44h5mNxUQ3ooUKda2YbE9vvTpL75C2vuT62UefWPF7ryw1iTT7aNrxTXIvLg&usqp=CAU" alt="Profile Image" class="rounded-circle me-3" width="50" height="50">
+                            <h5 class="mb-0">Mariam El-Sayed</h5>
+                        </div>
+                        <p>Submitted on:</p>
+                        <p class="strong">25/2/2024</p>
+                        <p>Duration: </p>
+                        <p class="strong">1 Month (1/3/2024 - 31/3/2024)</p>
+                        <p>Salary: </p>
+                        <p class="strong">3000 AED</p>
+                        <div class="d-grid gap-2 d-md-block">
+                            <button class="btn btn-success me-2">Approve</button>
+                            <button type="button" class="btn btn-outline-success">Decline</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 5 -->
+            <div class="col-md-4 vacation-card">
+                <div class="border-top-0 card">
+                    <div class="card-body">
+                        <div class="d-flex mb-3 align-items-center">
+                            <input class="form-check-input me-2" type="checkbox" value="1">
+                            <img src="https://headshots-inc.com/wp-content/uploads/2021/01/FINAL-Blog-Images.jpg" alt="Profile Image" class="rounded-circle me-3" width="50" height="50">
+                            <h5 class="mb-0">Ali Amourah</h5>
+                        </div>
+                        <p>Submitted on:</p>
+                        <p class="strong">10/5/2024</p>
+                        <p>Duration: </p>
+                        <p class="strong">10 Days (15/5/2024 - 25/5/2024)</p>
+                        <p>Salary: </p>
+                        <p class="strong">1800 AED</p>
+                        <div class="d-grid gap-2 d-md-block">
+                            <button class="btn btn-success me-2">Approve</button>
+                            <button type="button" class="btn btn-outline-success">Decline</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 6 -->
+            <div class="col-md-4 vacation-card">
+                <div class="border-top-0 card">
+                    <div class="card-body">
+                        <div class="d-flex mb-3 align-items-center">
+                            <input class="form-check-input me-2" type="checkbox" value="1">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp3n-pOdEo0l21IfquUdoT1wd4VeU6Woqn-IL2Y_xJdrqemarswAgX3rKGF24eQPi2FGA&usqp=CAU" alt="Profile Image" class="rounded-circle me-3" width="50" height="50">
+                            <h5 class="mb-0">Omar Khaled</h5>
+                        </div>
+                    <p>Submitted on:</p>
+                    <p class="strong">1/3/2024</p>
+                    <p>Duration: </p>
+                    <p class="strong">2 Weeks (1/4/2024 - 14/4/2024)</p>
+                    <p>Salary: </p>
+                    <p class="strong">1000 AED</p>
+                    <div class="d-grid gap-2 d-md-block">
+                        <button class="btn btn-success me-2">Approve</button>
+                        <button type="button" class="btn btn-outline-success">Decline</button>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+            <!-- Card 7 -->
+            <div class="col-md-4 vacation-card">
+            <div class="border-top-0 card">
+                <div class="card-body">
+                    <div class="d-flex mb-3 align-items-center">
+                        <img src="data:image/jpeg;base64,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" alt="Profile Image" class="rounded-circle me-3" width="50" height="50">
+                        <h5 class="mb-0">Noura Hassan</h5>
+                    </div>
+                    <p>Submitted on:</p>
+                    <p class="strong">15/3/2024</p>
+                    <p>Duration: </p>
+                    <p class="strong">1 Week (20/3/2024 - 27/3/2024)</p>
+                    <p>Salary: </p>
+                    <p class="strong">1500 AED</p>
+                    <div class="d-grid gap-2 d-md-block">
+                        <button class="btn btn-success me-2">Approve</button>
+                        <button type="button" class="btn btn-outline-success">Decline</button>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <!--Pagination-->
+        <div class="container bg-light py-3 mt-4 d-flex justify-content-center">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination rounded-pill justify-content-center" style="background-color: #d3d3d3; padding: 10px;">
+                    <li class="page-item">
+                        <a id="prevPage" class="page-link text-dark" href="#" style="background-color: transparent; border: none;">
+                        <i class="fas fa-chevron-left"></i>
+                        </a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link text-dark" href="/vacation request.html" style="background-color: transparent; border: none;">1</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link text-dark" href="/vacation request2.html" style="background-color: transparent; border: none;">2</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link text-dark" href="/vacation request3.html" style="background-color: transparent; border: none;">3</a>
+                    </li>
+                    <li class="page-item">
+                        <a id="nextPage" class="page-link text-dark" href="#" style="background-color: transparent; border: none;">
+                        <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+    <script>
+        /*Select code*/
+        document.addEventListener('DOMContentLoaded', function() {
+        const selectAllCheckbox = document.getElementById('select-all');
+        const employeeCheckboxes = document.querySelectorAll('.form-check-input');
+        selectAllCheckbox.addEventListener('change', function() {
+            employeeCheckboxes.forEach(function(checkbox) {
+                checkbox.checked = selectAllCheckbox.checked;
+                });
+            });
+        });
+        /*JavaScript funtion for the search bar*/
+        const filterRequests = () => {
+        const searchbox = document.getElementById("searchInput").value.toUpperCase();
+        const requestItems = document.getElementById("vacationContainer");
+        const cards = document.querySelectorAll(".vacation-card");
+        const requestNames = requestItems.getElementsByTagName("h5");
+
+        for (let i = 0; i < requestNames.length; i++) {
+            let match = cards[i].getElementsByTagName('h5')[0];
+
+            if (match) {
+                let textvalue = match.textContent || match.innerHTML;
+                if (textvalue.toUpperCase().indexOf(searchbox) > -1) {
+                    cards[i].style.display = "";
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+        }
+    };
+        /*JavaScript function to load the shared navbar */
+        document.addEventListener("DOMContentLoaded", function() {
+        fetch('navbar.html')
+        .then(response => {
+            if (response.ok) {
+                return response.text();
+            } else {
+                throw new Error('Error loading navbar');
+            }
+        })
+        .then(data => {
+            document.getElementById('navbar-placeholder').innerHTML = data;
+        })
+        .catch(error => console.error('Error:', error));
+    });
+
+
+
+    /* JavaScript funtion to add class active to the current loaded page */
+    document.addEventListener("DOMContentLoaded", function() {
+        var path = window.location.pathname;
+        var linkId = path === '/index.html' ? 'home-link' :
+        path === '/profiles.html' ? 'profiles-link' :
+        path === '/reports.html' ? 'reports-link' :
+        path === '/settings.html' ? 'settings-link' : '';
+        if (linkId) {
+            document.getElementById(linkId).classList.add('active');
+        }
+    });
+
+
+    /*To make the "Next" and "Previous" arrows functional*/
+    document.addEventListener('DOMContentLoaded', function() {
+        const prevButton = document.getElementById('prevPage');
+        const nextButton = document.getElementById('nextPage');
+        const pages = [
+            '/vacation request.html',
+            '/vacation request2.html',
+            '/vacation request3.html'
+        ];
+        let currentPageIndex = 0;
+        
+        prevButton.addEventListener('click', function(event) {
+            event.preventDefault();
+            if (currentPageIndex > 0) {
+                currentPageIndex--;
+                window.location.href = pages[currentPageIndex];
+            }
+        });
+        nextButton.addEventListener('click', function(event) {
+            event.preventDefault();
+            if (currentPageIndex < pages.length - 1) {
+                currentPageIndex++;
+                window.location.href = pages[currentPageIndex];
+            }
+        });
+    });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+/*General Style*/
+body {
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+}
+.card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px; 
+    margin-bottom: 30px;
+}
+.card.p-4 {
+    margin-top: 20px;
+}
+.card p {
+    margin: 0;
+}
+h5 {
+    font-weight: bold;
+}
+.rounded-circle {
+    border: 2px solid #ddd;
+}
+button.btn-success {
+    background-color: #28a745;
+}
+.row .card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: white;
+}
+.row .card p {
+    font-size: 14px;
+}
+.row .fas {
+    color: rgb(168, 166, 166);
+    font-size: 2rem;
+}
+
+/*Mobile Responsive*/
+@media (max-width: 767.98px) {
+    .card {
+        padding: 10px;
+    }
+    .navbar-nav {
+        margin-top: 10px;
+    }
+    .navbar-toggler {
+        margin-right: 0;
+    }
+}

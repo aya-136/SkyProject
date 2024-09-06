@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vacation Requests</title>
+    <link rel="stylesheet" href="vacation.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <!--NavBar-->
+    <div id="navbar-placeholder"></div>
+
+    <div class="container mt-5">
+
+        <form class="d-flex align-items-center justify-content-between" role="search">
+            <div class="d-flex align-items-center">
+                <i class="fas fa-list me-2 fa-2x"></i>
+                <p class="text mb-0">Vacation Requests</p>
+            </div>
+            <div class="search-bar d-flex align-items-center">
+                <i class="fas fa-search me-2"></i>
+                <input type="text" class="form-control" placeholder="Search..." id="searchInput" onkeyup="filterRequests()">
+            </div>
+        </form>
+        <hr>
+        <!--Select and filter-->
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <div>
+                <input type="checkbox" id="select-all">
+                <label for="select-all">Select All</label>
+            </div>
+            <div class="d-flex">
+                
+                <button class="btn btn-outline-secondary btn-sm">
+                    <i class="fas fa-filter fa-2x"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!--Vacation Cards-->
+        <div class="row" id="vacationContainer">
+            <!-- Card 1 -->
+            <div class="col-md-4 vacation-card">
+                <div class="border-top-0 card">
+                    <div class="card-body">
+                        <div class="d-flex mb-3 align-items-center">
+                            <input class="form-check-input me-2" type="checkbox" value="1">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcFNE2CZZzsF5-Jtx_O7qLS_3x0ZLoR2Tnvg&s" alt="Profile Image" class="rounded-circle me-3" width="50" height="50">
+                            <h5 class="mb-0">Ahmad Khaleel</h5>
+                        </div>
+                        <p>Submitted on:</p>
+                        <p class="strong">10/5/2024</p>
+                        <p>Duration: </p>
+                        <p class="strong">10 Days (15/5/2024 - 25/5/2024)</p>
+                        <p>Salary: </p>
+                        <p class="strong">1800 AED</p>
+                        <div class="d-grid gap-2 d-md-block">
+                            <button class="btn btn-success me-2">Approve</button>
+                            <button type="button" class="btn btn-outline-success">Decline</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="col-md-4 vacation-card">
+                <div class="border-top-0 card">
+                    <div class="card-body">
+                        <div class="d-flex mb-3 align-items-center">
+                            <input class="form-check-input me-2" type="checkbox" value="1">
+                            <img src="data:image/jpeg;base64,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" alt="Profile Image" class="rounded-circle me-3" width="50" height="50">
+                            <h5 class="mb-0">Ali Abdulkarem</h5>
+                        </div>
+                        <p>Submitted on:</p>
+                        <p class="strong">1/3/2024</p>
+                        <p>Duration: </p>
+                        <p class="strong">2 Weeks (1/4/2024 - 14/4/2024)</p>
+                        <p>Salary: </p>
+                        <p class="strong">1000 AED</p>
+                        <div class="d-grid gap-2 d-md-block">
+                            <button class="btn btn-success me-2">Approve</button>
+                            <button type="button" class="btn btn-outline-success">Decline</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="col-md-4 vacation-card">
+                <div class="border-top-0 card">
+                    <div class="card-body">
+                        <div class="d-flex mb-3 align-items-center">
+                            <input class="form-check-input me-2" type="checkbox" value="1">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfnQ82FzIKSlMFrgPxUBsNKmk1bV0nHSj7VsXp3aOtg61KgoEnDGzrMmebowQK7wsXwUM&usqp=CAU" alt="Profile Image" class="rounded-circle me-3" width="50" height="50">
+                            <h5 class="mb-0">Rama Mohammad</h5>
+                        </div>
+                        <p>Submitted on:</p>
+                        <p class="strong">15/3/2024</p>
+                        <p>Duration: </p>
+                        <p class="strong">1 Week (20/3/2024 - 27/3/2024)</p>
+                        <p>Salary: </p>
+                        <p class="strong">1500 AED</p>
+                        <div class="d-grid gap-2 d-md-block">
+                            <button class="btn btn-success me-2">Approve</button>
+                            <button type="button" class="btn btn-outline-success">Decline</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!--Pagination-->
+        <div class="container bg-light py-3 mt-4 d-flex justify-content-center">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination rounded-pill justify-content-center" style="background-color: #d3d3d3; padding: 10px;">
+                    <li class="page-item">
+                        <a id="prevPage" class="page-link text-dark" href="#" style="background-color: transparent; border: none;">
+                        <i class="fas fa-chevron-left"></i>
+                        </a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link text-dark" href="/vacation request.html" style="background-color: transparent; border: none;">1</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link text-dark" href="/vacation request2.html" style="background-color: transparent; border: none;">2</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link text-dark" href="/vacation request3.html" style="background-color: transparent; border: none;">3</a>
+                    </li>
+                    <li class="page-item">
+                        <a id="nextPage" class="page-link text-dark" href="#" style="background-color: transparent; border: none;">
+                        <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        
+        
+        <script>
+            /*Select code*/
+            document.addEventListener('DOMContentLoaded', function() {
+            const selectAllCheckbox = document.getElementById('select-all');
+            const employeeCheckboxes = document.querySelectorAll('.form-check-input');
+            selectAllCheckbox.addEventListener('change', function() {
+                employeeCheckboxes.forEach(function(checkbox) {
+                    checkbox.checked = selectAllCheckbox.checked;
+                    });
+                });
+            });
+            /*JavaScript funtion for the search bar*/
+            const filterRequests = () => {
+            const searchbox = document.getElementById("searchInput").value.toUpperCase();
+            const requestItems = document.getElementById("vacationContainer");
+            const cards = document.querySelectorAll(".vacation-card");
+            const requestNames = requestItems.getElementsByTagName("h5");
+    
+            for (let i = 0; i < requestNames.length; i++) {
+                let match = cards[i].getElementsByTagName('h5')[0];
+    
+                if (match) {
+                    let textvalue = match.textContent || match.innerHTML;
+                    if (textvalue.toUpperCase().indexOf(searchbox) > -1) {
+                        cards[i].style.display = "";
+                    } else {
+                        cards[i].style.display = "none";
+                    }
+                }
+            }
+        };
+            /*JavaScript function to load the shared navbar */
+            document.addEventListener("DOMContentLoaded", function() {
+            fetch('navbar.html')
+            .then(response => {
+                if (response.ok) {
+                    return response.text();
+                } else {
+                    throw new Error('Error loading navbar');
+                }
+            })
+            .then(data => {
+                document.getElementById('navbar-placeholder').innerHTML = data;
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    
+    
+    
+        /* JavaScript funtion to add class active to the current loaded page */
+        document.addEventListener("DOMContentLoaded", function() {
+            var path = window.location.pathname;
+            var linkId = path === '/index.html' ? 'home-link' :
+            path === '/profiles.html' ? 'profiles-link' :
+            path === '/reports.html' ? 'reports-link' :
+            path === '/settings.html' ? 'settings-link' : '';
+            if (linkId) {
+                document.getElementById(linkId).classList.add('active');
+            }
+        });
+
+
+
+        /*To make the "Next" and "Previous" arrows functional*/
+        document.addEventListener('DOMContentLoaded', function() {
+        const prevButton = document.getElementById('prevPage');
+        const nextButton = document.getElementById('nextPage');
+        const pages = [
+            '/vacation request.html',
+            '/vacation request2.html',
+            '/vacation request3.html'
+        ];
+        let currentPageIndex = 0;
+        prevButton.addEventListener('click', function(event) {
+            event.preventDefault();
+            if (currentPageIndex > 0) {
+                currentPageIndex--;
+                window.location.href = pages[currentPageIndex];
+            }
+        });
+        nextButton.addEventListener('click', function(event) {
+            event.preventDefault();
+            if (currentPageIndex < pages.length - 1) {
+                currentPageIndex++;
+                window.location.href = pages[currentPageIndex];
+            }
+        });
+    });
+        </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
